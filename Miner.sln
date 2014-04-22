@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinerCore", "MinerCore\MinerCore.csproj", "{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{1B968263-C1C4-4226-A452-34AE993A0002}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B968263-C1C4-4226-A452-34AE993A0002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B968263-C1C4-4226-A452-34AE993A0002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B968263-C1C4-4226-A452-34AE993A0002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B968263-C1C4-4226-A452-34AE993A0002}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

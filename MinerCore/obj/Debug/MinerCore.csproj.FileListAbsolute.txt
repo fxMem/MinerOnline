@@ -1,0 +1,5 @@
+C:\GitHub\Miner\MinerCore\obj\Debug\MinerCore.csprojResolveAssemblyReference.cache
+C:\GitHub\Miner\MinerCore\bin\Debug\MinerCore.dll
+C:\GitHub\Miner\MinerCore\bin\Debug\MinerCore.pdb
+C:\GitHub\Miner\MinerCore\obj\Debug\MinerCore.dll
+C:\GitHub\Miner\MinerCore\obj\Debug\MinerCore.pdb
