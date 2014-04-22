@@ -44,8 +44,8 @@ namespace GUI
         {
             _buttonsPainted = new bool[ySize, xSize];
             _buttons = new Button[ySize, xSize];
-            var buttonSize = 30;
-            var buttonPadding = 5;
+            var buttonSize = 25;
+            var buttonPadding = 1;
 
             var topOffset = 50;
             var leftOffset = 50;
@@ -132,6 +132,10 @@ namespace GUI
                     {
                         button.Text = "F";
                         button.BackColor = Color.Orange;
+                    }
+                    else if (currentTile.State == MinerCore.TileViewState.Explosed)
+                    {
+                        button.BackColor = Color.Chocolate;
                     }
                     else if (currentTile.State == MinerCore.TileViewState.Closed)
                     {

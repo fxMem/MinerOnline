@@ -16,13 +16,17 @@ namespace MinerCore
 
         public int SizeY { get; private set; }
 
+        public int PlayerLifeCount { get; private set; }
+
         public BattleFieldParams()
         {
 
         }
 
-        public BattleFieldParams(int bomsCount, int xN, int yN)
+        public BattleFieldParams(int lifeCount, int bomsCount, int xN, int yN)
         {
+            PlayerLifeCount = lifeCount;
+
             BombsCount = bomsCount;
 
             SizeY = yN;

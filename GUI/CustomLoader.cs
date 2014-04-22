@@ -18,7 +18,7 @@ namespace GUI
 
         public BattleFieldParams LoadParams()
         {
-            return new BattleFieldParams(10, 10, 10);
+            return new BattleFieldParams(3, 10, 10, 10);
         }
     }
 }

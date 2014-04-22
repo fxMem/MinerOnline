@@ -1,0 +1,11 @@
+C:\GitHub\MinerOnline\GUI\bin\Release\GUI.exe.config
+C:\GitHub\MinerOnline\GUI\bin\Release\GUI.exe
+C:\GitHub\MinerOnline\GUI\bin\Release\GUI.pdb
+C:\GitHub\MinerOnline\GUI\bin\Release\MinerCore.dll
+C:\GitHub\MinerOnline\GUI\bin\Release\MinerCore.pdb
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.csprojResolveAssemblyReference.cache
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.Form1.resources
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.Properties.Resources.resources
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.csproj.GenerateResource.Cache
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.exe
+C:\GitHub\MinerOnline\GUI\obj\Release\GUI.pdb

@@ -9,7 +9,13 @@ namespace MinerCore
 {
     enum ProbeResult
     {
+        // Игрок выбрал поле с бомбой, и жизней больше нет. Проигрыш
         Fail,
+
+        // Игрок выбрал поле с бомбой, но еще остались жизни
+        Explosed,
+
+        // Игрок не взорвался
         Good
     }
 
@@ -25,6 +31,8 @@ namespace MinerCore
 
         private int _remainsFlagCount;
 
+        private int _remainsLifesCount;
+
         private DateTime _startGameTime;
 
         private bool _gameInProcess;
@@ -33,9 +41,6 @@ namespace MinerCore
         {
             Owner = player;
             _fieldParams = fieldParams;
-
-            
-
         }
 
         public void StartGame()
@@ -45,6 +50,8 @@ namespace MinerCore
 
             _remainsBombCount = _fieldParams.BombsCount;
             _remainsFlagCount = _fieldParams.BombsCount;
+            _remainsLifesCount = _fieldParams.PlayerLifeCount;
+
             generateField();
         }
 
@@ -185,9 +192,7 @@ namespace MinerCore
             // Игрок выбрал поле с бомбой
             if (tile.HasBomb())
             {
-                // Проигрыш
-                FinishGame(PlayerResult.Fail);
-                return ProbeResult.Fail;
+                return GotExplosed(tile);
             }
 
             tile.ViewState = TileViewState.Opened;
@@ -251,6 +256,26 @@ namespace MinerCore
                 }
             }
 
+        }
+
+        private ProbeResult GotExplosed(FieldTile tile)
+        {
+            if (_remainsLifesCount == 0)
+            {
+                // Жизни закончились, проигрыш
+                FinishGame(PlayerResult.Fail);
+                return ProbeResult.Fail;
+            }
+            else
+            {
+                tile.ViewState = TileViewState.Explosed;
+
+                _remainsBombCount--;
+                _remainsLifesCount--;
+
+                checkGameFinished();
+                return ProbeResult.Good;
+            }
         }
 
         private void FinishGame(PlayerResult result)
@@ -374,9 +399,10 @@ namespace MinerCore
     {
         public static void SetBomb(this FieldTile tile)
         {
-            if (tile.HasViewState(TileViewState.Opened))
+
+            if (!tile.HasViewState(TileViewState.Closed))
             {
-                throw new ArgumentOutOfRangeException("Can't set bomb on already opened tile!");
+                throw new ArgumentOutOfRangeException("Can set bomb only on closed tile!");
             }
 
             if (tile.HasBomb())
@@ -384,24 +410,14 @@ namespace MinerCore
                 throw new ArgumentOutOfRangeException("Tile already has bomb on it!");
             }
 
-            if (tile.HasViewState(TileViewState.Flagged))
-            {
-                throw new ArgumentOutOfRangeException("Can't set bomb on already flagged tile!");
-            }
-
             tile.DemoState = TileDemoState.HasBomb;
         }
 
         public static void SetFlag(this FieldTile tile)
         {
-            if (tile.HasViewState(TileViewState.Opened))
+            if (!tile.HasViewState(TileViewState.Closed))
             {
-                throw new ArgumentOutOfRangeException("Can't set flag on already opened tile!");
-            }
-
-            if (tile.HasViewState(TileViewState.Flagged))
-            {
-                throw new ArgumentOutOfRangeException("Can't set flag on already flagged tile!");
+                throw new ArgumentOutOfRangeException("Can set flag only on closed tile!");
             }
 
             tile.ViewState = TileViewState.Flagged;

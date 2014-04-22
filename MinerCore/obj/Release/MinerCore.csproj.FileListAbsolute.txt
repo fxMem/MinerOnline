@@ -1,0 +1,5 @@
+C:\GitHub\MinerOnline\MinerCore\bin\Release\MinerCore.dll
+C:\GitHub\MinerOnline\MinerCore\bin\Release\MinerCore.pdb
+C:\GitHub\MinerOnline\MinerCore\obj\Release\MinerCore.csprojResolveAssemblyReference.cache
+C:\GitHub\MinerOnline\MinerCore\obj\Release\MinerCore.dll
+C:\GitHub\MinerOnline\MinerCore\obj\Release\MinerCore.pdb

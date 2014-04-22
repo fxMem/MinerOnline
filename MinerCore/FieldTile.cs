@@ -11,6 +11,7 @@ namespace MinerCore
         Opened,
         Closed,
         Flagged,
+        Explosed,
         Unused
     }
 
