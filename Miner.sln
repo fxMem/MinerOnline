@@ -1,11 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinerCore", "MinerCore\MinerCore.csproj", "{A83ED9D0-19CB-4AA8-8BA1-7E990FD65F60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{1B968263-C1C4-4226-A452-34AE993A0002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinHost", "OwinHost\OwinHost.csproj", "{E28DCA3F-7F68-425A-A147-E483E54AC271}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainValley.Games2", "..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Games2\PlainValley.Games2.csproj", "{8DFB69C6-08C2-47A5-940C-200B86A740A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainValley.Messaging", "..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Messaging\PlainValley.Messaging.csproj", "{6DDAB93B-4E65-47C1-B05C-63FDA58046D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainValley.Messaging.SignalR", "..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Messaging.SignalR\PlainValley.Messaging.SignalR.csproj", "{6D59503E-D2A4-4F1E-BE03-6F9AC9CDDDF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainValley.VirtualHubs", "..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.VirtualHubs\PlainValley.VirtualHubs.csproj", "{1973B374-4979-4101-A991-8533ED81A306}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +31,26 @@ Global
 		{1B968263-C1C4-4226-A452-34AE993A0002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B968263-C1C4-4226-A452-34AE993A0002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B968263-C1C4-4226-A452-34AE993A0002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E28DCA3F-7F68-425A-A147-E483E54AC271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28DCA3F-7F68-425A-A147-E483E54AC271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28DCA3F-7F68-425A-A147-E483E54AC271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28DCA3F-7F68-425A-A147-E483E54AC271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFB69C6-08C2-47A5-940C-200B86A740A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFB69C6-08C2-47A5-940C-200B86A740A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFB69C6-08C2-47A5-940C-200B86A740A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFB69C6-08C2-47A5-940C-200B86A740A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDAB93B-4E65-47C1-B05C-63FDA58046D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDAB93B-4E65-47C1-B05C-63FDA58046D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDAB93B-4E65-47C1-B05C-63FDA58046D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDAB93B-4E65-47C1-B05C-63FDA58046D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D59503E-D2A4-4F1E-BE03-6F9AC9CDDDF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D59503E-D2A4-4F1E-BE03-6F9AC9CDDDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D59503E-D2A4-4F1E-BE03-6F9AC9CDDDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D59503E-D2A4-4F1E-BE03-6F9AC9CDDDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1973B374-4979-4101-A991-8533ED81A306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1973B374-4979-4101-A991-8533ED81A306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1973B374-4979-4101-A991-8533ED81A306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1973B374-4979-4101-A991-8533ED81A306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -125,30 +125,33 @@ namespace GUI
             for (int y = 0; y < field.SizeY; y++)
                 for (int x = 0; x < field.SizeX; x++)
                 {
-                    var currentTile = field[y, x];
+                    var state = (MinerCore.TileViewState)field.States[y, x];
+                    var count = field.BombCounts[y, x];
+
+                   // var currentTile = field[y, x];
                     var button = _buttons[y, x];
 
-                    if (currentTile.State == MinerCore.TileViewState.Flagged)
+                    if (state == MinerCore.TileViewState.Flagged)
                     {
                         button.Text = "F";
                         button.BackColor = Color.Orange;
                     }
-                    else if (currentTile.State == MinerCore.TileViewState.Explosed)
+                    else if (state == MinerCore.TileViewState.Explosed)
                     {
                         button.BackColor = Color.Chocolate;
                     }
-                    else if (currentTile.State == MinerCore.TileViewState.Closed)
+                    else if (state == MinerCore.TileViewState.Closed)
                     {
                         button.Text = "";
                         button.BackColor = SystemColors.Control;
                     }
                     else
-                    if ((currentTile.State == MinerCore.TileViewState.Opened))
+                        if ((state == MinerCore.TileViewState.Opened))
                     {
                         button.BackColor = SystemColors.ControlDark;
-                        if (currentTile.NearestBombCount.HasValue && currentTile.NearestBombCount != 0)
+                        if (count != 0)
                         {
-                            button.Text = currentTile.NearestBombCount.ToString();
+                            button.Text = count.ToString();
                         }
                         //_buttonsPainted[y, x] = true;
                     }
@@ -160,7 +163,7 @@ namespace GUI
             throw new NotImplementedException();
         }
 
-        public void ShowGameResult(PlayerResult result, TimeSpan time, MinerCore.Player winner, IEnumerable<TileCoordinates> bombs = null)
+        public void ShowGameResult(PlayerResult result, TimeSpan time, MinerPlayer winner, IEnumerable<TileCoordinates> bombs = null)
         {
             if (bombs != null)
             {

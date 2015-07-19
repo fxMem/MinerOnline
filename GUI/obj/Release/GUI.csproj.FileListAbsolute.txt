@@ -9,3 +9,6 @@ C:\GitHub\MinerOnline\GUI\obj\Release\GUI.Properties.Resources.resources
 C:\GitHub\MinerOnline\GUI\obj\Release\GUI.csproj.GenerateResource.Cache
 C:\GitHub\MinerOnline\GUI\obj\Release\GUI.exe
 C:\GitHub\MinerOnline\GUI\obj\Release\GUI.pdb
+C:\Github\Repos\MinerOnline\GUI\bin\Release\GUI.exe.config
+C:\Github\Repos\MinerOnline\GUI\obj\Release\GUI.exe
+C:\Github\Repos\MinerOnline\GUI\obj\Release\GUI.pdb

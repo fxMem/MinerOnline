@@ -81,6 +81,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Games2\PlainValley.Games2.csproj">
+      <Project>{8dfb69c6-08c2-47a5-940c-200b86a740a2}</Project>
+      <Name>PlainValley.Games2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Messaging\PlainValley.Messaging.csproj">
+      <Project>{6ddab93b-4e65-47c1-b05c-63fda58046d8}</Project>
+      <Name>PlainValley.Messaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MinerCore\MinerCore.csproj">
       <Project>{a83ed9d0-19cb-4aa8-8ba1-7e990fd65f60}</Project>
       <Name>MinerCore</Name>

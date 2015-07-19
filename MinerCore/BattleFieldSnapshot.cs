@@ -16,7 +16,11 @@ namespace MinerCore
 
     public class BattleFieldSnapshot
     {
-        private TileSnapshot[,] _tiles;
+        //public TileSnapshot[,] Tiles;
+
+        public int[,] BombCounts { get; set; }
+
+        public int[,] States { get; set; }
 
         private int _xN;
 
@@ -29,24 +33,29 @@ namespace MinerCore
 
             var ySize = tiles.SizeY;
             var xSize = tiles.SizeX;
-            _tiles = new TileSnapshot[ySize, xSize];
+            //Tiles = new TileSnapshot[ySize, xSize];
+            BombCounts = new int[ySize, xSize];
+            States = new int[ySize, xSize];
 
             for (int y = 0; y < ySize; y++)
                 for (int x = 0; x < xSize; x++)
                 {
                     var currentTile = tiles[y, x];
-                    _tiles[y, x] = new TileSnapshot 
-                    { 
-                        State = currentTile.ViewState, 
-                        NearestBombCount = bombCounter[y, x]
-                    };
+                    //Tiles[y, x] = new TileSnapshot 
+                    //{ 
+                    //    State = currentTile.ViewState, 
+                    //    NearestBombCount = bombCounter[y, x]
+                    //};
+
+                    BombCounts[y, x] = bombCounter[y, x];
+                    States[y, x] = (int)currentTile.ViewState;
                 }
         }
  
-        public TileSnapshot this[int y, int x]
-        {
-            get { return _tiles[y, x]; }
-        }
+        //public TileSnapshot this[int y, int x]
+        //{
+        //    get { return Tiles[y, x]; }
+        //}
 
         public int SizeX { get { return _xN; } }
 

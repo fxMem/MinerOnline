@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PlainValley.Games;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +12,7 @@ namespace MinerCore
     enum ProbeResult
     {
         // Игрок выбрал поле с бомбой, и жизней больше нет. Проигрыш
-        Fail,
+        Fail = 0,
 
         // Игрок выбрал поле с бомбой, но еще остались жизни
         Explosed,
@@ -37,10 +39,16 @@ namespace MinerCore
 
         private bool _gameInProcess;
 
-        public BattleField(Player player, BattleFieldParams fieldParams)
+        private MinerPlayer _player;
+
+        public BattleField(BattleFieldParams fieldParams)
         {
-            Owner = player;
             _fieldParams = fieldParams;
+        }
+
+        public void SetPlayer(MinerPlayer player)
+        {
+            _player = player;
         }
 
         public void StartGame()
@@ -55,8 +63,6 @@ namespace MinerCore
             generateField();
         }
 
-        public Player Owner { get; private set; }
-
         public int RemainsBombsCount { get { return _remainsBombCount; } }
 
         public int RemainsFlagsCount { get { return _remainsFlagCount; } }
@@ -65,34 +71,38 @@ namespace MinerCore
 
         public int SizeY { get { return _fieldParams.SizeY; } }
 
-        //public EventHandler<FieldStateChangedEventArgs> FieldStateChanged;
-
         public event EventHandler<FieldStateChangedEventArgs> FieldStateChanged;
 
         public event EventHandler<PlayerFinishedEventArgs> PlayerFinished;
 
         public void Probe(int x, int y)
         {
-            isInGameCheck();
-            checkRange(x, y);
+            string res = "";
+           
+                isInGameCheck();
+                checkRange(x, y);
 
-            var selectedTile = _field[y, x];
-            if (!selectedTile.HasViewState(TileViewState.Closed))
-            {
-                throw new ArgumentOutOfRangeException("You can probe only Closed tiles");
-            }
+                var selectedTile = _field[y, x];
+                if (!selectedTile.HasViewState(TileViewState.Closed))
+                {
+                    throw new ArgumentOutOfRangeException("You can probe only Closed tiles");
+                }
 
-            if (probeTile(x, y) == ProbeResult.Fail)
-            {
-                // Игра закончена. Игрок попал на бомбу
-                return;
-            }
+                if (probeTile(x, y) == ProbeResult.Fail)
+                {
+                    res = "Fail";
+                    // Игра закончена. Игрок попал на бомбу
+                    return;
+                }
 
-            // Мы не попали на бомбу. Открываем доступные ячейки
-            openZoneWithCenter(x, y);
+                // Мы не попали на бомбу. Открываем доступные ячейки
+                openZoneWithCenter(x, y);
 
-            // Поле обновилось. Оповещаем клиент
-            OnFieldStateChanged();
+                // Поле обновилось. Оповещаем клиент
+                OnFieldStateChanged();
+                res = "Good";
+           
+            
         }
 
         public void SetOrUnsetFlag(int x, int y)
@@ -260,10 +270,12 @@ namespace MinerCore
 
         private ProbeResult GotExplosed(FieldTile tile)
         {
-            if (_remainsLifesCount == 0)
+            if (_remainsLifesCount == 1)
             {
                 // Жизни закончились, проигрыш
                 FinishGame(PlayerResult.Fail);
+                _player.Disable();
+
                 return ProbeResult.Fail;
             }
             else
@@ -326,7 +338,7 @@ namespace MinerCore
         {
             if (!_gameInProcess)
             {
-                throw new InvalidOperationException("Game already finished.");
+                throw new InvalidOperationException("Game is not running.");
             }
         }
 
@@ -385,9 +397,9 @@ namespace MinerCore
             {
                 temp(this, new PlayerFinishedEventArgs 
                 { 
+                    Player = _player,
                     ElapsedTime = playerTime, 
                     Result = result, 
-                    Player = Owner,
                     Bombs = bombs
                 });
             }

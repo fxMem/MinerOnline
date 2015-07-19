@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace MinerCore
 {
-    public enum TileViewState
+    public enum TileViewState : int
     {
-        Opened,
-        Closed,
-        Flagged,
-        Explosed,
+        Opened = 0,
+        Closed = 1,
+        Flagged = 2,
+        Explosed = 3,
         Unused
     }
 
     public enum TileDemoState
     {
         HasBomb,
-        CLear
+        Clear
     }
 
 

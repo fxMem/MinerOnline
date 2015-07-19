@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body oncontextmenu="return false;">
+   
+	<div id="popup-win" class="popup">
+		<p class="popup-header">
+			Добро пожаловать в увлекательную игру MinerOnline!
+		</p>
+		<p class="popup-nickname-message">
+			Введите ваш ник:
+		</p>
+		<p class="popup-input">
+			<input type="text" id="in-nickname" value="1" /> <button id="nick-in">Вход</button>
+		</p>
+		
+		
+		<p class="connection-status">
+		</p>
+	</div>
+
+	<div id="menu-container" class="hide">
+		<p id="main-menu-status">
+		</p>
+		
+		<p id="menu-text">
+			Список игр:
+		</p>
+		<div id="main-menu">
+
+		</div>
+		<div id="session-table" cellspacing="0" cellpadding="0">
+			<table>
+				<thead id="session-table-head">
+					<tr>
+						<td>Название</td>
+						<td>Создана</td>
+						<td>Описание</td>
+						<td>Игроков</td>
+						<td>Статуc</td>
+						<!--<td id="hidden-cell"></td>-->
+					</tr>
+				</thead>
+				<tbody id="main-menu-sessions"></tbody>
+			</table>
+
+		</div>
+	</div>
+	
+	<div id="game-container" class="hide">
+		<div id="game-data">
+
+		</div>
+		<div id="vote-panel" class="hide green">
+			VOTE
+		</div>
+		<div id="leave-panel" class="hide yellow">
+			LEAVE
+		</div>
+		<div id="chat-container">
+			<div id="input">
+				<input type="text" id="message-area"></input>
+				<button id="send-msg-btn">Send</button>
+			</div>
+
+			<div id="chat-msg">
+				
+			</div>
+			
+		</div>
+		
+		<table id="game-field" class="hide">
+			<tr>
+				<td>
+					<div id="player-field">
+						<p class="field-text">
+							Ваше игровое поле
+						</p>
+					</div>
+				</td>
+				<td>
+					<div id="enemy-field" class="hide">
+						<p class="field-text">
+							Поле вашего противника
+						</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		
+	</div>
+	
+
+    <link href="scripts/base.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.6.4.min.js"></script>
+    <script src="scripts/jquery.signalr-2.2.0.min.js"></script>
+    <script src="scripts/pixi.dev.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="metadata/scripts"></script>
+	<script src="scripts/view2.js"></script>
+	<script src="scripts/presentor2.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

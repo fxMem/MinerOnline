@@ -24,7 +24,7 @@ namespace GUI
             //_params = BattleFieldParams.Default;
 
             _view.SetPresentor(this);
-            _session = new BattleField(null, _params);
+            _session = new BattleField( _params);
 
         }
 

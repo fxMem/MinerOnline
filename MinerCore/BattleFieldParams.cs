@@ -8,8 +8,6 @@ namespace MinerCore
 {
     public class BattleFieldParams
     {
-        public static BattleFieldParams Default = new BattleFieldParams { SizeX = 10, SizeY = 10, BombsCount = 10 };
-
         public int BombsCount { get; private set; }
 
         public int SizeX { get; private set; }

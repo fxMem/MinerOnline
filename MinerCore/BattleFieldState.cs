@@ -31,7 +31,7 @@ namespace MinerCore
                         _field[y, x].ViewState = TileViewState.Closed;
                     }
 
-                    _field[y, x].DemoState = TileDemoState.CLear;
+                    _field[y, x].DemoState = TileDemoState.Clear;
                 }
             
         }

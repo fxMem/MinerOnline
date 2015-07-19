@@ -43,14 +43,36 @@
     <Compile Include="BattleFieldParams.cs" />
     <Compile Include="BattleFieldSnapshot.cs" />
     <Compile Include="BattleFieldState.cs" />
+    <Compile Include="EndGameUpdateData.cs" />
     <Compile Include="FieldStateChangedEventArgs.cs" />
     <Compile Include="FieldTile.cs" />
-    <Compile Include="GameSession.cs" />
     <Compile Include="IFieldOptionsLoader.cs" />
+    <Compile Include="MinerActionData.cs" />
+    <Compile Include="MinerCommadAction.cs" />
+    <Compile Include="MinerGame.cs" />
+    <Compile Include="MinerCommandData.cs" />
+    <Compile Include="MinerGameConfiguration.cs" />
+    <Compile Include="MinerGameConfigurationLoader.cs" />
+    <Compile Include="MinerPlayer.cs" />
+    <Compile Include="MinerScore.cs" />
+    <Compile Include="MinerPlayerUpdateInfo.cs" />
+    <Compile Include="MinerUpdateData.cs" />
     <Compile Include="NearBombsCounter.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="PlayerFinishedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Games2\PlainValley.Games2.csproj">
+      <Project>{8dfb69c6-08c2-47a5-940c-200b86a740a2}</Project>
+      <Name>PlainValley.Games2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Development\Plain-Valley\PlainValley.Games\PlainValley.Messaging\PlainValley.Messaging.csproj">
+      <Project>{6ddab93b-4e65-47c1-b05c-63fda58046d8}</Project>
+      <Name>PlainValley.Messaging</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,7 +16,7 @@ namespace GUI
 
         void ShowTime(TimeSpan time);
 
-        void ShowGameResult(PlayerResult result, TimeSpan time, Player winner, IEnumerable<TileCoordinates> bombs = null);
+        void ShowGameResult(PlayerResult result, TimeSpan time, MinerPlayer winner, IEnumerable<TileCoordinates> bombs = null);
 
         void ShowErrorMessage(string msg);
 
