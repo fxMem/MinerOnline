@@ -21,9 +21,7 @@ namespace OwinHost
         {
             var resolver = new DefaultDependencyResolver();
 
-            //configure(resolver);
             app.MapGame(resolver, configure, new Type[] { typeof(ActionData) }).UseNancy();
-            
         }
 
         private void configure(IDependencyResolver resolver)
@@ -31,15 +29,11 @@ namespace OwinHost
             var p = new FieldTile();
             // Регистрирует типы неободимые для работы PlainValley.Games
             ResolverRegistration.Register(resolver);
-            //resolver.RegisterInSingletoneScope<IMembershipService>(() => new DefaultMembershipService());
-
             var credientialsBinder = resolver.Resolve<IDataBinder>();
             credientialsBinder.RegisterType(typeof(DefaultUserCredentials));
 
             
             resolver.RegisterInSingletoneScope<IGameConfigurationLoader>(() => new MinerGameConfigurationLoader());
-            //var f = (IDataBinder<MessageData>)(new JsonDataBinder<ActionData>());
-            //resolver.RegisterInSingletoneScope<IDataBinder<IUserCredentials>>(() => new ));
 
             var actions = new List<Func<IDependencyResolver, IAction>>
             {
