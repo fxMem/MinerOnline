@@ -9,6 +9,8 @@ using MinerCore;
 using Nancy;
 using System.Collections.Generic;
 using PlainValley.Games.Actions;
+using PlainValley.Messaging.SignalR.Admin;
+using PlainValley.Messaging.Metadata;
 
 
 [assembly: OwinStartup(typeof(OwinHost.Startup))]
@@ -20,8 +22,17 @@ namespace OwinHost
         public void Configuration(IAppBuilder app)
         {
             var resolver = new DefaultDependencyResolver();
+			resolver.RegisterInSingletoneScope<IGameConfigurationLoader>(() => new MinerGameConfigurationLoader());
 
-            app.MapGame(resolver, configure, new Type[] { typeof(ActionData) }).UseNancy();
+			var bootstrapper = new GamesBootstrapper(resolver).
+				AddModules(typeof(AdminHttpModule), typeof(LoggerModule)).
+				UseLobby().
+				RunGames().
+				AddAllActions().
+				UseMetadataGenerators(typeof(JavaScriptMetadataGenerator)).
+				UseMembership(MembershipOptions.Free);
+
+            app.MapGame(bootstrapper).UseNancy();
         }
 
         private void configure(IDependencyResolver resolver)
@@ -30,7 +41,7 @@ namespace OwinHost
             // Регистрирует типы неободимые для работы PlainValley.Games
             ResolverRegistration.Register(resolver);
             var credientialsBinder = resolver.Resolve<IDataBinder>();
-            credientialsBinder.RegisterType(typeof(DefaultUserCredentials));
+            credientialsBinder.RegisterType(typeof(FreeUserCredentials));
 
             
             resolver.RegisterInSingletoneScope<IGameConfigurationLoader>(() => new MinerGameConfigurationLoader());
